@@ -9,6 +9,6 @@ RUN unzip kider.zip
 RUN cp -rvf kider.zip/* .
 RUN rm -rf kider kider.zip
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
-EXPOSE 80
+EXPOSE 80 443
 
 

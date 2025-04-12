@@ -21,6 +21,6 @@ RUN unzip kider.zip && \
 
 # Start Apache in the foreground
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
-i
+
 EXPOSE 80 443
 

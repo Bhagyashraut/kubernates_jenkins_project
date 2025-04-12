@@ -1,4 +1,4 @@
-FROM centos:8
+FROM centos:9
 LABEL maintainer="bhagyash1raut@gmail.com"
 RUN yum install -y httpd zip unzip && yum clean all
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page295/kider.zip /var/www/html/

@@ -15,8 +15,8 @@ ADD https://www.free-css.com/assets/files/free-css-templates/download/page295/ki
 
 WORKDIR /var/www/html/
 
-RUN unzip kider.zip && \
-    cp -rvf kider/* . && \
+RUN unzip kider.zip  \
+    cp -rvf kider/* . \
     rm -rf kider kider.zip
 
 # Start Apache in the foreground

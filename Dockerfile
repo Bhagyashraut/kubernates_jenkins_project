@@ -1,26 +1,23 @@
+# Use the official Ubuntu base image
 FROM ubuntu:latest
 
-MAINTAINER bhagyash1raut@gmail.com
-
-# Avoid interactive prompts during install (for tzdata, etc.)
+# Set environment variables to non-interactive (useful for apt)
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install Apache, unzip, and zip
-RUN apt-get update && \
-    apt-get install -y apache2 zip unzip && \
-    apt-get clean
+# Update and install basic packages
+RUN apt-get update && apt-get install -y \
+    curl \
+    wget \
+    git \
+    vim \
+    nano \
+    build-essential \
+    software-properties-common \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Add and unzip the template
-ADD https://www.free-css.com/assets/files/free-css-templates/download/page295/kider.zip /var/www/html/
+# Set working directory
+WORKDIR /app
 
-WORKDIR /var/www/html/
-
-RUN unzip kider.zip  \
-    cp -rvf kider/* . \
-    rm -rf kider kider.zip
-
-# Start Apache in the foreground
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
-
-EXPOSE 80 443
+# Default command
+CMD [ "bash" , "-D" , "FOREGROUND"]
 

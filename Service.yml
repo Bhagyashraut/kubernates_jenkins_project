@@ -6,8 +6,10 @@ metadata:
     app: webapp
 spec:
   ports:
-    - port: 8080
+    - name: http
+      protocol: TCP
+      port: 8080
       targetPort: 80
   selector:
-     app: webapp 
+     app.kubernetes.io/name: webapp 
   type: LoadBalancer

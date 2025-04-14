@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: app/v1
+metadata:
+   name: webapp
+spec:
+  replicas: 2
+  selector: 
+    matchLabels:
+      app: webapp
+    template:
+       metadata:
+         labels:
+           app: webapp
+       spec:
+        containers:
+         - name: webapp
+           image: bhagyash654/project-demo
+           imagePolicy: Always
+           ports:
+           - containerPort: 80

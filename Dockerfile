@@ -6,18 +6,21 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Update and install basic packages
 RUN apt-get update && apt-get install -y \
+    nginx \
     curl \
-    wget \
-    git \
-    vim \
-    nano \
-    build-essential \
-    software-properties-common \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    unzip && \
+    apt clean
+RUN rm -rf /var/www/html/*   
+RUN curl -L -o carvilla.zip https://www.free-css.com/assets/files/free-css-templates/download/page296/carvilla.zip && \
+    unzip carvilla.zip && \
+    cp -r carvilla/* /var/www/html/ && \
+    rm -rf carvilla.zip carvilla
 
 # Set working directory
 WORKDIR /app
 
+EXPOSE 80
+
 # Default command
-CMD [ "bash" , "-D" , "FOREGROUND"]
+CMD [ "nginx" , "-g" , "daemon off;"]
 

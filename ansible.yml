@@ -1,10 +1,8 @@
 - hosts: node
   become: true
-  become_user: root
   tasks:
     - name: Create new deployment
-      command: kubectl apply -f /home/ubuntu/Deployment.yml --validate=false
-      ignore_errors: true
+      command: kubectl apply -f /home/ubuntu/Deployment.yml 
     - name: Create new service
-      command: kubectl apply -f /home/ubuntu/Service.yml --validate=false
-      ignore_errors: true
+      command: kubectl apply -f /home/ubuntu/Service.yml 
+      

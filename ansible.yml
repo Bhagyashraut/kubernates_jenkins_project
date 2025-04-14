@@ -3,5 +3,7 @@
   tasks:
     - name: Create new deployment
       command: kubectl apply -f /home/ubuntu/Deployment.yml --validate=false
+      ignore_errors: true
     - name: Create new service
       command: kubectl apply -f /home/ubuntu/Service.yml --validate=false
+      ignore_errors: true

@@ -7,14 +7,14 @@ spec:
   selector: 
     matchLabels:
       app: webapp
-    template:
-       metadata:
-         labels:
-           app: webapp
-       spec:
+  template:
+      metadata:
+        labels:
+          app: webapp
+      spec:
         containers:
          - name: webapp
            image: bhagyash654/project-demo
            imagePullPolicy: Always
            ports:
-             - containerPort: 80
+           - containerPort: 80

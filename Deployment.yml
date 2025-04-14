@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-   name: webapp
+  name: webapp
 spec:
   replicas: 2
   selector: 
@@ -15,6 +15,6 @@ spec:
         containers:
          - name: webapp
            image: bhagyash654/project-demo
-           imagePolicy: Always
+           imagePullPolicy: Always
            ports:
-           - containerPort: 80
+             - containerPort: 80
